@@ -1,0 +1,26 @@
+//* REXX exec to write  Hello World!  100 times to a (sequential) output
+//* dataset called HLQ.PROJ2C8.SEQ                                      
+//*                                                                     
+//* VARIABLES                                                           
+//*                                                                     
+DSN = "MFAPP13.PROJ2C8.SEQ"                                             
+OUTPUT_STRING ='HELLO WORLD'                                            
+NUMBER_LINES = 100                                                      
+//*                                                                     
+//* ALLOCATING A NEW SEQ DATASET                                        
+//*                                                                     
+ALLOC DA('"''DSN''"') F(OUTPUT) NEW CATALOG,                            
+  "dsorg(PS)","space(1,1) recfm(F,B) lrecl(80) track blksize(27920)"    
+//*                                                                     
+//* DO LOOP TO WRITE                                                    
+//*                                                                     
+ DO I = 1 TO NUMBER_LINES                                               
+  QUEUE OUTPUT_STRING                                                   
+ END                                                                    
+//*                                                                     
+//* EXIT AND FREE                                                       
+//*                                                                     
+'EXECIO ' || QUEUED() || ' DISKW OUTPUT (FINI'                          
+"FREE FI(OUTPUT)"                                                       
+//*                                                                     
+EXIT                                                                    
