@@ -1,0 +1,29 @@
+/*REXX*/                                      
+/* FIRST ARG */                               
+ARG A                                         
+                                              
+/* GET TODAY'S DATE IN 'BASE' DATE FORMAT */  
+TODAY = DATE('B',A,'U')                       
+/* CALCULATE NEXT DAY */                      
+TOMORROW = TODAY + 1                          
+/* CALCULATE PREVIOUS DAY */                  
+YESTERDAY = TODAY - 1                         
+                   /* RETURNS '19980715' */   
+ISODATE = DATE('STANDARD', TODAY, 'BASE')     
+                   /* RETURNS '07/15/98' */   
+USDATE  = DATE('USA',TODAY, 'BASE')           
+                   /* RETURNS '15 JUL 1998' */
+NDATE  = DATE('NORMAL', TODAY, 'BASE')        
+                   /* RETURNS '07/15/98' */   
+YDATE  = DATE('USA',YESTERDAY, 'BASE')        
+                   /* RETURNS '07/15/98' */   
+TDATE  = DATE('USA',TOMORROW, 'BASE')         
+                                              
+SAY TODAY                                     
+SAY YESTERDAY                                 
+SAY TOMORROW                                  
+SAY ISODATE                                   
+SAY NDATE                                     
+SAY USDATE                                    
+SAY YDATE                                     
+SAY TDATE                                     
