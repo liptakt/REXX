@@ -1,0 +1,6 @@
+/* REXX */           
+/* PARSE FIRST ARG */
+ARG A                
+SAY CENTER(A,73,'-') 
+SAY LEFT(A,73,'<')   
+SAY RIGHT(A,73,'>')  
